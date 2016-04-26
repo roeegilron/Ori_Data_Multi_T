@@ -1,5 +1,9 @@
 function MAIN_doSearchLightCrossValFolds_Ht2_NewT2013_subproc(subnum)
 % get params 
+% add path (importnat for parallel) 
+p = genpath(pwd);
+addpath(p); 
+% 
 prms = get_and_set_params();
 % load data / file naming / saving 
 datadir = prms.datafold;
