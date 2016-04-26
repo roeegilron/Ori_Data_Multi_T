@@ -1,8 +1,11 @@
 function MAIN()
 %% calc and display stuff related to ori data analysis 
 %% add path to code base 
-p = genpath('D:\Roee_Main_Folder\1_AnalysisFiles\Poldrack_RFX\'); 
+p = genpath(pwd);
 addpath(p); 
+%% run multi t non directional new version (split sample + SVM) 
+run_multi_t_non_directional()
+
 %% get setttings params 
 [settings, params] = getparams();
 
