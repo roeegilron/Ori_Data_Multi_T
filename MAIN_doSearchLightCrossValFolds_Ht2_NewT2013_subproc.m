@@ -20,19 +20,13 @@ idx = knnsearch(locations, locations, 'K', params.regionSize); % find searchligh
 shufMatrix = createShuffMatrixFFX(data,params);
 
 %% loop on all voxels in the brain to create T map
+params.subnum = subnum; 
 for i = 1:(params.numShuffels + 1) % loop on shuffels 
-    %don't shuffle first itiration
-    if i ==1 % don't shuffle data
-        labelsuse = labels;
-    else % shuffle data
-        labelsuse = labels(shufMatrix(:,i-1));
-    end
-    idxX = find(labelsuse==1);
-	idxY = find(labelsuse==2);
+    % do cross validation 
+    rng(subnum); % insures that partition is the same for all shuffels; 
+    [data, labels] = doCrossVal(data,labels);
     for j=1:size(idx,1) % loop on voxels 
-        dataX = data(idxX,idx(j,:));
-        dataY = data(idxY,idx(j,:));
-        [ansMat(j,i,:) ] = calcTstatMuniMengTwoGroup(dataX,dataY);
+        [ansMat(j,i,:) ] = do_analysis(data,labels,params,idx(j,:),i);
     end
     timeVec(i) = toc(start); reportProgress(fnTosave,i,params, timeVec);
 end

@@ -4,7 +4,7 @@ function params = get_and_set_params()
 params.numShuffels   = 3;
 params.regionSize    = 4;
 params.analysismode  = 'multi-t'; % 'svm','multit'
-params.crossVal      = 'none'; % none, 'half','4' 
+params.crossVal      = '2fold'; % none, 'half','4' 
 
 % data locations 
 params.datafold      = fullfile('..','data','ActivePassiveLH'); 
