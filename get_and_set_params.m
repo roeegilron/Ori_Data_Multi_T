@@ -3,7 +3,7 @@ function params = get_and_set_params()
 % params to use 
 params.numShuffels   = 3;
 params.regionSize    = 4;
-params.analysismode  = 'multi-t'; % 'svm','multit'
+params.analysismode  = 'svm'; % 'svm','multi-t'
 params.crossVal      = '2fold'; % none, 'half','4' 
 
 % data locations 
