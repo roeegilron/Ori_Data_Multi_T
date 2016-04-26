@@ -10,6 +10,10 @@ function run_multi_t_non_directional()
 % This function was written such that it runs each subject on one core in
 % parallel on a server. Set the flag for 'runSequential' = true if you do not
 % wish to run in parallel.
+%% add path to code base 
+p = genpath(pwd);
+addpath(p); 
+
 %% first level 
 params = get_and_set_params();
 substorun = params.substorun; 
