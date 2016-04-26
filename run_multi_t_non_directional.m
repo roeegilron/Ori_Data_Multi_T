@@ -13,10 +13,7 @@ function run_multi_t_non_directional()
 %% first level 
 runSequential = false;
 
-s150 = subsUsedGet(150);
-s20 = subsUsedGet(20);
-substorun = sort(setdiff(s150,s20));
-substorun = s20; 
+substorun = 2:18; 
 startmatlab = 'matlabr2015a -nodisplay -nojvm -r '; % matlab version used to run in parallel
 for i = 1:length(substorun)
     if runSequential
@@ -29,7 +26,5 @@ for i = 1:length(substorun)
     end
 end
 
-%% run second level 
-MAIN_compute_non_directional_second_level() % second level 
 
 end
