@@ -19,7 +19,7 @@ switch params.analysismode
             labelsuse = labels.train;
             labelsuse = labelsuse(randperm(length(labelsuse)));
         end
-        model = svmtrainwrapper(labels.train,data.train(:,sphrindxs));
+        model = svmtrainwrapper(labelsuse,data.train(:,sphrindxs));
         [predicted_label, acc, third] = ...
             svmpredictwrapper(labels.test, data.test(:,sphrindxs), model);
         analysis_res = acc(1)/100;
