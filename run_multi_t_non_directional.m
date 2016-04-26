@@ -11,12 +11,11 @@ function run_multi_t_non_directional()
 % parallel on a server. Set the flag for 'runSequential' = true if you do not
 % wish to run in parallel.
 %% first level 
-runSequential = false;
-
-substorun = 2:18; 
+params = get_and_set_params();
+substorun = params.substorun; 
 startmatlab = 'matlabr2015a -nodisplay -nojvm -r '; % matlab version used to run in parallel
 for i = 1:length(substorun)
-    if runSequential
+    if params.runSequential
         subnum = substorun(i);
         runprogram  = sprintf('"run MAIN_doSearchLightCrossValFolds_Ht2_NewT2013_subproc(%d); exit;" ',subnum);
         pause(0.1);
