@@ -1,8 +1,8 @@
 function params = get_and_set_params()
 % This code gets and sets number of shuffels / sl size 
 % params to use 
-params.numShuffels   = 3;
-params.regionSize    = 4;
+params.numShuffels   = 100;
+params.regionSize    = 9;
 params.analysismode  = 'svm'; % 'svm','multi-t'
 params.crossVal      = '2fold'; % none, 'half','4' 
 
@@ -15,7 +15,7 @@ params.matprefix     = 'ssubj%d_ForServer_n.mat' ;
 params.substorun     = 2:18; 
 
 % second level 
-params.numMaps2ndlvl = 1e2; % stelzer maps 
-
+params.numMaps2ndlvl = 1e3; % stelzer maps 
+params.avgType       = 'mean'; % 'mean' or 'median' (to avg maps across sub' voxelwise
 params 
 end
