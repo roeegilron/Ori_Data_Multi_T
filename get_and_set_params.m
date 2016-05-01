@@ -4,7 +4,7 @@ function params = get_and_set_params()
 params.numShuffels   = 100;
 params.regionSize    = 9;
 params.analysismode  = 'svm'; % 'svm','multi-t'
-params.crossVal      = '2fold'; % none, 'half','4' 
+params.crossVal      = 'none'; % none, '2fold'
 
 % run parallel
 params.runSequential = false;

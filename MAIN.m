@@ -9,6 +9,9 @@ run_multi_t_non_directional() % first level
 %% run second level 
 MAIN_compute_non_directional_second_level() % second level 
 
+%% run prevalance / replicability estimate (Ruti version) on Simes + SVM 
+run_prevalance_estimates_replicability()
+
 %% get setttings params 
 [settings, params] = getparams();
 

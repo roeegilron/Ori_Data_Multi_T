@@ -15,10 +15,12 @@ secondlevelresultsfolder = fullfile(analysisfolder,'2nd_level');
 
 ff = findFilesBVQX(secondlevelresultsfolder,'*.mat',struct('depth',1)); 
 for i = 1:length(ff)
-    [~,fn] = fileparts(ff{i}); 
+    [pn,fn] = fileparts(ff{i}); 
+    [fnttl,~] = fileparts(pn); 
+    [~,fnttl] = fileparts(fnttl); 
     load(ff{i}); 
 %     avgAnsMat = ansMat;
-    fprintf('%s:\n',fn);
+    fprintf('%s:\n',fnttl);
     fprintf('first row:\n'); 
     fprintf('\t %f ',avgAnsMat(1,1:10));
     fprintf('\n');
@@ -27,6 +29,9 @@ for i = 1:length(ff)
     fprintf('\n \t');
     pval = calcPvalVoxelWise(avgAnsMat);
     sigfdr = fdr_bh(pval,0.05,'pdep','yes');
+    figure;
+    histogram(pval);
+    title(strrep(fnttl,'_',' '));
     fprintf('\n');
     fprintf('\n');
 end
