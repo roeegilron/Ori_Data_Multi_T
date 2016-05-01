@@ -26,7 +26,7 @@ shufMatrix = createShuffMatrixFFX(data,params);
 params.subnum = subnum;
 % do cross validation
 rng(subnum); % insures that partition is the same for all shuffels;
-[data, labels] = doCrossVal(data,labels);
+[data, labels] = doCrossVal(data,labels,params);
 
 %% loop on all voxels in the brain to create T map
 for i = 1:(params.numShuffels + 1) % loop on shuffels 

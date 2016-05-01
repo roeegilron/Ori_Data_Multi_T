@@ -1,8 +1,8 @@
-function [dataout, labelsout] = doCrossVal(data,labels)
+function [dataout, labelsout] = doCrossVal(data,labels,params)
 switch params.crossVal
     case 'none' % non has only train data 
         dataout.train = data; 
-        dataout.labels = labels; 
+        labelsout.labels = labels; 
     case '2fold'
         cvo = cvpartition(labels,'Kfold',2);
         dataout.train   = get_train_data(data,cvo);

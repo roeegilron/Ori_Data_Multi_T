@@ -1,9 +1,9 @@
 function analysis_res = do_analysis(data,labels,params,sphrindxs,itir)
 
-if strcomp(params.crossVal,'none') % no crosee val you only have train, no test 
+if strcmp(params.crossVal,'none') % no crosee val you only have train, no test 
     if itir == 1 % don't shuffle train
-        dataX = data.train(labels.train==1,sphrindxs);
-        dataY = data.train(labels.train==2,sphrindxs);
+        dataX = data.train(labels.labels==1,sphrindxs);
+        dataY = data.train(labels.labels==2,sphrindxs);
     else % always shuffle test for multi-t
         labelsuse = labels.train;
         labelsuse = labelsuse(randperm(length(labelsuse)));
