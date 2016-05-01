@@ -10,6 +10,7 @@ if strcomp(params.crossVal,'none') % no crosee val you only have train, no test
         dataX = data.train(labelsuse==1,sphrindxs);
         dataY = data.train(labelsuse==2,sphrindxs);
     end
+    analysis_res = calcTstatMuniMengTwoGroup(dataX,dataY);
 else % do cross validatio n
     switch params.analysismode
         case 'multi-t'
