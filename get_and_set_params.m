@@ -1,9 +1,9 @@
 function params = get_and_set_params()
 % This code gets and sets number of shuffels / sl size 
-% params to use 
+% params to use (first level) 
 params.numShuffels   = 100;
-params.regionSize    = 9;
-params.analysismode  = 'svm'; % 'svm','multi-t'
+params.regionSize    = 27;
+params.analysismode  = 'multi-t'; % 'svm','multi-t'
 params.crossVal      = 'none'; % none, '2fold'
 
 % run parallel
