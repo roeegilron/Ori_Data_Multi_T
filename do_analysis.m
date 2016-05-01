@@ -5,7 +5,7 @@ if strcmp(params.crossVal,'none') % no crosee val you only have train, no test
         dataX = data.train(labels.labels==1,sphrindxs);
         dataY = data.train(labels.labels==2,sphrindxs);
     else % always shuffle test for multi-t
-        labelsuse = labels.train;
+        labelsuse = labels.labels;
         labelsuse = labelsuse(randperm(length(labelsuse)));
         dataX = data.train(labelsuse==1,sphrindxs);
         dataY = data.train(labelsuse==2,sphrindxs);
